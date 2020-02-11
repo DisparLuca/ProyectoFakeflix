@@ -1,8 +1,10 @@
 package control;
 
 import DAO.DAO;
+import DAO.DAOClients;
 import DAO.DAOException;
 import DAO.FactoryDAO;
+import model.Client;
 import model.Film;
 
 public class Main {
@@ -11,8 +13,9 @@ public class Main {
 		
 		DAO<Film, Integer> dao = FactoryDAO.getInstance().getDAO();
 		//dao.get(1);
-		dao.cargarDatos();
-
-	}
+		//dao.cargarDatos(); Cargar los datos del fichero de peliculas en la base de datos
+		DAOClients<Client,Integer> dao1 = FactoryDAO.getInstance().getDAOClient();
+		dao1.getAll();
+		}
 
 }

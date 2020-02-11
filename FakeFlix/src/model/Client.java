@@ -1,3 +1,9 @@
+/**
+ *	Representa a un usuario de la aplicacion FakeFlix
+ * @author Pablo Muñoz
+ */
+
+
 package model;
 import java.util.Date;
 
@@ -8,18 +14,18 @@ public class Client {
 	private String name;
 	private String city;
 	private boolean premium;
-	private Date birthdate;
+	private int birthDate;
 	
 	public Client() {
 		super();
 	}
 
-	public Client(int id_cliente, String name, String city, boolean premium, Date birthdate) {
+	public Client(int id_cliente, String name, String city, boolean premium, int birthDate) {
 		this.id_cliente = id_cliente;
 		this.name = name;
 		this.city = city;
 		this.premium = premium;
-		this.birthdate = birthdate;
+		this.birthDate = birthDate;
 	}
 	
 	public int getId_cliente() {
@@ -54,18 +60,18 @@ public class Client {
 		this.premium = premium;
 	}
 
-	public Date getBirthdate() {
-		return birthdate;
+	public int getBirthdate() {
+		return birthDate;
 	}
 
-	public void setBirthdate(Date birthdate) {
-		this.birthdate = birthdate;
+	public void setBirthDate(int birthDate) {
+		this.birthDate = birthDate;
 	}
 
 	@Override
 	public String toString() {
 		return "Cliente [id_cliente=" + id_cliente + ", name=" + name + ", city=" + city + ", premium=" + premium
-				+ ", birthdate=" + birthdate + "]";
+				+ ", birthdate=" + birthDate + "]";
 	}
 	
 	

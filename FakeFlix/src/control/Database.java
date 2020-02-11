@@ -7,12 +7,17 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import DAO.DAO;
 import DAO.DAOException;
+import model.Client;
 import model.Film;
 import mysqlConnection.DBConnection_MySQL;
 
@@ -21,7 +26,6 @@ public class Database implements DAO<Film, Integer> {
 	private Connection connection;
 	private final String GET= "SELECT shirt_num, name, position FROM players WHERE shirt_num = ?";
 	private static final String SQL_INSERT = "INSERT INTO pelicula(name, year, category) VALUES(?, ?, ?)";
-	
 	private final static Logger LOGGER = Logger.getLogger("CargarDatosBD");
 	private File archivo = null;
 	private FileReader fr =null;
@@ -100,7 +104,7 @@ public class Database implements DAO<Film, Integer> {
 		LOGGER.log(Level.INFO,"Leyendo fichero de peliculas");
 		try {
 			
-			archivo = new File ("./settings/peliculas_cat.txt");
+			archivo = new File ("./FakeFlix/settings/peliculas_cat.txt");
 			fr = new FileReader (archivo);
 			br = new BufferedReader(fr);
 						
@@ -136,10 +140,9 @@ public class Database implements DAO<Film, Integer> {
 	
 	}
 	
-	
 	@Override
-	public List<Film> getAll() throws DAOException {
-		// TODO Auto-generated method stub
+	public List <Film> getAll() throws DAOException {
+		
 		return null;
 	}
 
