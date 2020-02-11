@@ -17,7 +17,7 @@ public class Input {
 	 * @author David.
 	 * @return int recogido por teclado.
 	 */
-	public int readInt() {
+	public static int readInt() {
 	return new Scanner(System.in).nextInt();
 	}
 	
@@ -25,7 +25,7 @@ public class Input {
 	 * @author David.
 	 * @return String recogido por teclado.
 	 */
-	public String readString() {
+	public static String readString() {
 		return new Scanner(System.in).nextLine();
 	}
 }

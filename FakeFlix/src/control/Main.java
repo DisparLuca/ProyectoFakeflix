@@ -16,13 +16,15 @@ public class Main {
 
 		//dao.cargarDatos(); Cargar los datos del fichero de peliculas en la base de datos
 		DAOClients<Client,Integer> dao1 = FactoryDAO.getInstance().getDAOClient();
-		dao1.getAll();
+		//dao1.getAll();
 		
 
 		//dao.cargarDatos();
-		dao.saveUser();
+		//dao.saveUser();
 		//dao.deleteUser();
+		dao.introducirPeliculas();
 
+		
 	}
 
 

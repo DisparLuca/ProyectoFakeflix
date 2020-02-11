@@ -5,6 +5,12 @@ public class Film {
 	private String name;
 	private String category;
 	private int year;
+	
+	
+
+	public Film() {
+		super();
+	}
 
 	public Film(String name, String category, int year) {
 		this.name=name;

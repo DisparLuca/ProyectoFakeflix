@@ -7,21 +7,20 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
+
 import java.util.List;
 
-import java.util.Scanner;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import DAO.DAO;
 import DAO.DAOException;
+
 import model.Client;
 import model.Film;
 import model.Input;
-import mysqlConnection.DBConnection_MySQL;
+
 
 public class Database implements DAO<Film, Integer> {
 
@@ -202,10 +201,10 @@ public class Database implements DAO<Film, Integer> {
 			
 				String[] parts = linea.split(",");
 				String nombrePelicula = parts[0]; 
-				String añoString = parts[1];
+				String yearString = parts[1];
 				String categoria = parts[2];
-				int añoInt = Integer.parseInt(añoString);	
-				pelicula = new Film(nombrePelicula,categoria,añoInt);
+				int yearInt = Integer.parseInt(yearString);	
+				pelicula = new Film(nombrePelicula,categoria,yearInt);
 				save(pelicula);
 				System.out.println(pelicula);
 				
@@ -244,6 +243,21 @@ public class Database implements DAO<Film, Integer> {
 	public void update(Film t) throws DAOException {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void introducirPeliculas() throws DAOException {
+		
+		Film pelicula=new Film();
+					
+		System.out.println("Introduzca el nombre de la pelicula:");
+		pelicula.setName(Input.readString());
+		System.out.println("Introduzca el a�o de la pelicula:");
+		pelicula.setYear((Input.readInt()));   
+		System.out.println("Introduzca el genero de la pelicula:");
+		pelicula.setCategory(Input.readString());
+		save(pelicula);
+		LOGGER.log(Level.INFO,"Pelicula guardada correctamente");
 	}
 
 }

@@ -18,6 +18,8 @@ public interface DAO<T, K> {
 	
 	//Actualizar
 	public void update(T t) throws DAOException;
+	
+	public void introducirPeliculas() throws DAOException;
 
 	void cargarDatos() throws DAOException;
 	//subir usuario a la base de datos

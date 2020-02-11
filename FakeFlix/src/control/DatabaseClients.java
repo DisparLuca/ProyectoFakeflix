@@ -28,10 +28,6 @@ public class DatabaseClients implements DAOClients<Client, Integer>{
 		this.connection= connection;
 	}
 	
-	public Client get() {
-		return null;
-	}
-	
 	public List <Client> getAll() throws DAOException {
 		
 		List<Client> listaClientes = new ArrayList<Client>();
@@ -56,7 +52,7 @@ public class DatabaseClients implements DAOClients<Client, Integer>{
                 cliente.setName(name);
                 cliente.setCity(city);
                 cliente.setPremium(premium);
-                cliente.setBirthDate(birthDate);
+                cliente.setBirthdate(birthDate);
                 
                 listaClientes.add(cliente);
             }
