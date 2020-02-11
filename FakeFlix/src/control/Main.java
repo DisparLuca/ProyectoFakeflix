@@ -13,6 +13,7 @@ public class Main {
 		//dao.get(1);
 		//dao.cargarDatos();
 		dao.saveUser();
+		//dao.deleteUser();
 
 	}
 

@@ -25,6 +25,7 @@ public class Database implements DAO<Film, Integer> {
 	private final String GET= "SELECT shirt_num, name, position FROM players WHERE shirt_num = ?";
 	private static final String SQL_INSERT = "INSERT INTO pelicula(name, year, category) VALUES(?, ?, ?)";
 	private static final String SQL_INSERTUSER = "INSERT INTO cliente(name, dateBirth, city, premium) VALUES(?, ?, ?, ?)";
+	private static final String SQL_DELETEUSER = "DELETE FROM cliente where idCliente = ?";
 	
 	private final static Logger LOGGER = Logger.getLogger("CargarDatosBD");
 	private File archivo = null;
@@ -102,10 +103,10 @@ public class Database implements DAO<Film, Integer> {
 	 * @author David Pacios Fernández
 	 * Creación del método que intorduce un/a cliente en la base de datos. no había tocado base de datos nunca, muy divertido.
 	 * El método pide al usuario los datos del cliente: nombre, fecha de nacimiento, ciudad y si es o no cliente premium. 
-	 */	
+	 */
+	@Override
 	public void saveUser() {
-		
-		
+				
 		 PreparedStatement stmt = null;
 	     Client u = new Client();
 	     Input in = new Input();
@@ -150,6 +151,32 @@ public class Database implements DAO<Film, Integer> {
 	        finally{
 	        	   
 	        }
+	}
+	
+	/**
+	 * @author David
+	 * método para pedir la id de un usuario y borrarlo de la base de datos. 
+	 */
+	@Override
+	public void deleteUser() {
+		
+		PreparedStatement stmt = null;
+		Input in = new Input();
+		System.out.println("Select the id of the user to delete: ");
+		int idToDelete = in.readInt();
+		
+		try {
+			
+			stmt = connection.prepareStatement(SQL_DELETEUSER);
+			stmt.setInt(1, idToDelete);
+			stmt.executeUpdate();
+			System.out.println("ejecutando query:" + SQL_DELETEUSER);
+			
+		} catch(SQLException ex) {
+			
+		}	finally {
+			
+		}
 	}
 	
 	@Override

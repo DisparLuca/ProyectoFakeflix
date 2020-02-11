@@ -20,7 +20,9 @@ public interface DAO<T, K> {
 	public void update(T t) throws DAOException;
 
 	void cargarDatos() throws DAOException;
-	
+	//subir usuario a la base de datos
 	void saveUser() throws DAOException;
+	//borrar usuario de la base de datos.
+	void deleteUser() throws DAOException;
 
 }//DataAccessObject
