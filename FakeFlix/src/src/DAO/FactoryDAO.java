@@ -1,8 +1,3 @@
-/**
- * Aqui carga los datos de configuración del fichero DAOSettings.xml
- * @author Álvaro Muñoz
- */
-
 package DAO;
 
 import java.io.File;
