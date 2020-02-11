@@ -26,7 +26,7 @@ public class FactoryDAO {
 	private static FactoryDAO instance;
 	private Properties properties;
 	private String DAO_type;
-	private String DAOsettingsXML= "settings\\DAOsettings.xml";
+	private String DAOsettingsXML= "FakeFlix\\settings\\DAOsettings.xml";
 	
 	
 	//CONSTRUCTOR

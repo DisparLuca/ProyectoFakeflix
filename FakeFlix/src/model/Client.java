@@ -8,13 +8,13 @@ public class Client {
 	private String name;
 	private String city;
 	private boolean premium;
-	private Date birthdate;
+	private int birthdate;
 	
 	public Client() {
 		super();
 	}
 
-	public Client(int id_cliente, String name, String city, boolean premium, Date birthdate) {
+	public Client(int id_cliente, String name, String city, boolean premium, int birthdate) {
 		this.id_cliente = id_cliente;
 		this.name = name;
 		this.city = city;
@@ -54,11 +54,11 @@ public class Client {
 		this.premium = premium;
 	}
 
-	public Date getBirthdate() {
+	public int getBirthdate() {
 		return birthdate;
 	}
 
-	public void setBirthdate(Date birthdate) {
+	public void setBirthdate(int birthdate) {
 		this.birthdate = birthdate;
 	}
 

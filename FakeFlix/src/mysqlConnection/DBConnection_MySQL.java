@@ -69,7 +69,7 @@ public class DBConnection_MySQL {
 		HashMap <String, String> connectionData = null;
 		
 		try {
-			properties.loadFromXML(new FileInputStream(new File("settings\\DAOsettings.xml")));
+			properties.loadFromXML(new FileInputStream(new File("FakeFlix\\settings\\DAOsettings.xml")));
 			
 			connectionData= new HashMap<String, String>();
             
