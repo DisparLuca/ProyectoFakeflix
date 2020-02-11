@@ -8,11 +8,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import DAO.DAO;
 import DAO.DAOException;
+import model.Client;
 import model.Film;
 import mysqlConnection.DBConnection_MySQL;
 
@@ -93,6 +95,58 @@ public class Database implements DAO<Film, Integer> {
         
         
     }
+	
+	public void saveUser() {
+		/**
+		 * @author David Pacios Fernández
+		 * Creación del método que intorduce un/a cliente en la base de datos. no había tocado base de datos nunca, muy divertido.
+		 * El método pide al usuario los datos del cliente: id, nombre, fecha de nacimiento, ciudad y si es o no cliente premium. 
+		 */
+		
+		 PreparedStatement stmt = null;
+	     Client u = new Client();
+	     Scanner in = new Scanner(System.in);
+		
+	     System.out.println("now select the client's name: ");
+	     String name = in.nextLine();
+	     u.setName(name);
+	     System.out.println("select the client's date of birth: ");
+	     int dateBirth = in.nextInt();
+	     u.setDatebirth(dateBirth);
+	     System.out.println("select the client's city of residence: ");
+	     String city = in.nextLine();
+	     u.setCity(city);
+	     System.out.println("select if the client's contract is of the premium modality(Y/N):");
+	     int isPremium;
+	     String modality;
+	     do {
+	    	 modality = in.nextLine();
+	    	 if (modality.equalsIgnoreCase("y")) {
+	    		 isPremium = 1;
+	    	 } else if (modality.equalsIgnoreCase("n")) {
+	    		 isPremium = 0;
+	    	 } else {
+	    		 LOGGER.log(Level.SEVERE, "sorry, only 'Y' or 'N' are acceptable responses");
+	    	 }
+	     	} while(!modality.equalsIgnoreCase("y") && !modality.equalsIgnoreCase("n"));
+	 
+	     try {
+	            
+	          stmt = connection.prepareStatement(SQL_INSERT);
+	          stmt.setString(2, u.getName());
+	          stmt.setInt(3, u.getDatebirth());
+	          stmt.setString(4, u.getCity());
+	          stmt.setInt(5, isPremium);
+	          stmt.executeUpdate();
+	            
+	          System.out.println("ejecutando query:" + SQL_INSERT);
+	        } catch (SQLException ex) {
+	            ex.printStackTrace(System.out);
+	        }
+	        finally{
+	        	   
+	        }
+	}
 	
 	@Override
 	public void cargarDatos() {
