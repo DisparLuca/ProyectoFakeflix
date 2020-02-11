@@ -11,7 +11,9 @@ public class Main {
 		
 		DAO<Film, Integer> dao = FactoryDAO.getInstance().getDAO();
 		//dao.get(1);
-		dao.cargarDatos();
+		//dao.cargarDatos();
+		dao.saveUser();
+		//dao.deleteUser();
 
 	}
 
