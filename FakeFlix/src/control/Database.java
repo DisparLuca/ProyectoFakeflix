@@ -7,7 +7,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,9 +28,11 @@ public class Database implements DAO<Film, Integer> {
 	private Connection connection;
 	private final String GET= "SELECT shirt_num, name, position FROM players WHERE shirt_num = ?";
 	private static final String SQL_INSERT = "INSERT INTO pelicula(name, year, category) VALUES(?, ?, ?)";
+
 	private static final String SQL_INSERTUSER = "INSERT INTO cliente(name, dateBirth, city, premium) VALUES(?, ?, ?, ?)";
 	private static final String SQL_DELETEUSER = "DELETE FROM cliente where idCliente = ?";
 	
+
 	private final static Logger LOGGER = Logger.getLogger("CargarDatosBD");
 	private File archivo = null;
 	private FileReader fr =null;
@@ -59,7 +65,7 @@ public class Database implements DAO<Film, Integer> {
 			
 			}//if
 			
-		} catch (SQLException e) {throw new DAOException("ExcepciÛn SQL", e);
+		} catch (SQLException e) {throw new DAOException("Excepci√≥n SQL", e);
 		
 		} finally {
 			
@@ -68,7 +74,7 @@ public class Database implements DAO<Film, Integer> {
 				preparedStatement.close();
 				resultSet.close();
 				
-			} catch (SQLException e) {throw new DAOException("ExcepciÛn SQL", e);}
+			} catch (SQLException e) {throw new DAOException("Excepci√≥n SQL", e);}
 			
 		}//finally
 		
@@ -100,9 +106,9 @@ public class Database implements DAO<Film, Integer> {
     }
 	
 	/**
-	 * @author David Pacios Fern·ndez
-	 * CreaciÛn del mÈtodo que intorduce un/a cliente en la base de datos. no habÌa tocado base de datos nunca, muy divertido.
-	 * El mÈtodo pide al usuario los datos del cliente: nombre, fecha de nacimiento, ciudad y si es o no cliente premium. 
+	 * @author David Pacios Fern√°ndez
+	 * Creaci√≥n del m√©todo que intorduce un/a cliente en la base de datos. no hab√≠a tocado base de datos nunca, muy divertido.
+	 * El m√©todo pide al usuario los datos del cliente: nombre, fecha de nacimiento, ciudad y si es o no cliente premium. 
 	 */
 	@Override
 	public void saveUser() {
@@ -155,7 +161,7 @@ public class Database implements DAO<Film, Integer> {
 	
 	/**
 	 * @author David
-	 * mÈtodo para pedir la id de un usuario y borrarlo de la base de datos. 
+	 * m√©todo para pedir la id de un usuario y borrarlo de la base de datos. 
 	 */
 	@Override
 	public void deleteUser() {
@@ -185,7 +191,7 @@ public class Database implements DAO<Film, Integer> {
 		LOGGER.log(Level.INFO,"Leyendo fichero de peliculas");
 		try {
 			
-			archivo = new File ("./settings/peliculas_cat.txt");
+			archivo = new File ("./FakeFlix/settings/peliculas_cat.txt");
 			fr = new FileReader (archivo);
 			br = new BufferedReader(fr);
 						
@@ -196,10 +202,10 @@ public class Database implements DAO<Film, Integer> {
 			
 				String[] parts = linea.split(",");
 				String nombrePelicula = parts[0]; 
-				String aÒoString = parts[1];
+				String a√±oString = parts[1];
 				String categoria = parts[2];
-				int aÒoInt = Integer.parseInt(aÒoString);	
-				pelicula = new Film(nombrePelicula,categoria,aÒoInt);
+				int a√±oInt = Integer.parseInt(a√±oString);	
+				pelicula = new Film(nombrePelicula,categoria,a√±oInt);
 				save(pelicula);
 				System.out.println(pelicula);
 				
@@ -221,10 +227,9 @@ public class Database implements DAO<Film, Integer> {
 	
 	}
 	
-	
 	@Override
-	public List<Film> getAll() throws DAOException {
-		// TODO Auto-generated method stub
+	public List <Film> getAll() throws DAOException {
+		
 		return null;
 	}
 

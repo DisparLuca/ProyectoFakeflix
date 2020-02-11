@@ -14,7 +14,9 @@ import java.util.Properties;
 
 
 import control.Database;
+import control.DatabaseClients;
 import mysqlConnection.DBConnection_MySQL;
+import model.Client;
 import model.Film;
 
 public class FactoryDAO {
@@ -26,7 +28,10 @@ public class FactoryDAO {
 	private static FactoryDAO instance;
 	private Properties properties;
 	private String DAO_type;
+
+
 	private String DAOsettingsXML= "FakeFlix\\settings\\DAOsettings.xml";
+
 	
 	
 	//CONSTRUCTOR
@@ -39,7 +44,7 @@ public class FactoryDAO {
 	}//Constructor Principal
 	
 	
-	//MÉTODOS
+	//MÃ‰TODOS
 	//-----------------------------------------------------
 	
 	private void configDAO(String DAOsettingsXML) {
@@ -90,6 +95,38 @@ public class FactoryDAO {
      			} catch (SQLException e) {e.printStackTrace();}
                  
                 dao = new Database(connection);
+        		
+        		break;
+        
+        }//switch
+        
+        return dao;
+        
+    }//getDAO
+	
+	public DAOClients<Client, Integer> getDAOClient() {
+
+        DatabaseClients dao= null;
+        
+        HashMap <String, String> connectionData;
+        Connection connection = null;
+        
+        switch (DAO_type) {
+        
+        	case "JDBC":
+        		
+        		connectionData = DBConnection_MySQL.getConnectionSettings();
+                 
+     			try {
+     				
+     				connection = DBConnection_MySQL.getInstance(connectionData).getConnection();
+     			
+     			} catch (InstantiationException e) {e.printStackTrace();
+     			} catch (IllegalAccessException e) {e.printStackTrace();
+     			} catch (ClassNotFoundException e) {e.printStackTrace();
+     			} catch (SQLException e) {e.printStackTrace();}
+                 
+                dao = new DatabaseClients(connection);
         		
         		break;
         
