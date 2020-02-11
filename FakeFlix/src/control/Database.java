@@ -202,10 +202,10 @@ public class Database implements DAO<Film, Integer> {
 			
 				String[] parts = linea.split(",");
 				String nombrePelicula = parts[0]; 
-				String añoString = parts[1];
+				String yearString = parts[1];
 				String categoria = parts[2];
-				int añoInt = Integer.parseInt(añoString);	
-				pelicula = new Film(nombrePelicula,categoria,añoInt);
+				int yearInt = Integer.parseInt(yearString);	
+				pelicula = new Film(nombrePelicula,categoria,yearInt);
 				save(pelicula);
 				System.out.println(pelicula);
 				
