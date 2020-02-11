@@ -18,7 +18,7 @@ public class Main {
 	static {
 		try {
 			// you need to do something like below instead of Logger.getLogger(....);
-			// Logger.getLogger se usaba hasta la versión 2.7 y muchos ejemplos de internet
+			// Logger.getLogger se usaba hasta la versiÃ³n 2.7 y muchos ejemplos de internet
 			// estan asi
 			logger = LogManager.getLogger(Main.class);
 		} catch (Throwable e) {
@@ -35,16 +35,19 @@ public class Main {
 		
 		DAO<Film, Integer> dao = FactoryDAO.getInstance().getDAO();
 		//dao.get(1);
+		System.out.println(dao.getAll());
+
 
 		logger.trace("DAO creado");
+
 		//dao.cargarDatos(); Cargar los datos del fichero de peliculas en la base de datos
 		DAOClients<Client,Integer> dao1 = FactoryDAO.getInstance().getDAOClient();
-		dao1.getAll();
+		//dao1.getAll();
 		
 		logger.trace("DAO1 creado");
 		
 		//dao.cargarDatos();
-		dao.saveUser();
+		//dao1.saveUser();
 		//dao.deleteUser();
 
 		logger.trace("DAO saveUser hecho");

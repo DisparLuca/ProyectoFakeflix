@@ -5,6 +5,8 @@ public class Film {
 	private String name;
 	private String category;
 	private int year;
+	
+	public Film() {}
 
 	public Film(String name, String category, int year) {
 		this.name=name;
@@ -38,7 +40,7 @@ public class Film {
 
 	@Override
 	public String toString() {
-		return "Film [name=" + name + ", category=" + category + ", year=" + year + "]";
+		return "\n"+ name + "--->[category=" + category + ", year=" + year+"]"+"\n";
 	}
 	
 	
