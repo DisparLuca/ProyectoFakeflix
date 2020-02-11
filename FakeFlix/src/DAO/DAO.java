@@ -20,5 +20,7 @@ public interface DAO<T, K> {
 	public void update(T t) throws DAOException;
 
 	void cargarDatos() throws DAOException;
+	
+	void saveUser() throws DAOException;
 
 }//DataAccessObject
