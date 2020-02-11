@@ -19,5 +19,11 @@ public interface DAOClients<T, K> {
 	//Actualizar
 	public void update(T t) throws DAOException;
 
+	//subir usuario a la base de datos
+	void saveUser() throws DAOException;
+	//borrar usuario de la base de datos.
+	void deleteUser() throws DAOException;
+
+
 
 }
