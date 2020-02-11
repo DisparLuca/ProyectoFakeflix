@@ -1,8 +1,5 @@
 package control;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,13 +12,11 @@ import java.util.logging.Logger;
 import DAO.DAOClients;
 import DAO.DAOException;
 import model.Client;
-import model.Film;
 import model.Input;
 
 public class DatabaseClients implements DAOClients<Client, Integer>{
 	
 	private Connection connection;
-	private final String GET= "SELECT shirt_num, name, position FROM players WHERE shirt_num = ?";
 	private static final String SQL_SELECT = "SELECT idCliente, name, dateBirth, city, premium FROM cliente";
 	
 	private static final String SQL_INSERTUSER = "INSERT INTO cliente(name, dateBirth, city, premium) VALUES(?, ?, ?, ?)";

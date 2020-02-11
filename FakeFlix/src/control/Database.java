@@ -26,12 +26,9 @@ import mysqlConnection.DBConnection_MySQL;
 public class Database implements DAO<Film, Integer> {
 
 	private Connection connection;
-	private final String GET= "SELECT shirt_num, name, position FROM players WHERE shirt_num = ?";
-	private static final String SQL_INSERT = "INSERT INTO pelicula(name, year, category) VALUES(?, ?, ?)";
-
-	private static final String SQL_INSERTUSER = "INSERT INTO cliente(name, dateBirth, city, premium) VALUES(?, ?, ?, ?)";
-	private static final String SQL_DELETEUSER = "DELETE FROM cliente where idCliente = ?";
 	
+	private static final String SQL_INSERT = "INSERT INTO pelicula(name, year, category) VALUES(?, ?, ?)";
+	private static final String getAllFilms = "SELECT * FROM pelicula";
 
 	private final static Logger LOGGER = Logger.getLogger("CargarDatosBD");
 	private File archivo = null;
@@ -44,41 +41,8 @@ public class Database implements DAO<Film, Integer> {
 	}
 
 	@Override
-	public Film get(Integer idFilm) throws DAOException {
-		ResultSet resultSet= null;
-		PreparedStatement preparedStatement= null;
-		Film film= null;
-
-		try {
-			
-			preparedStatement= connection.prepareStatement(GET);
-			preparedStatement.setInt(1, idFilm);
-			resultSet= preparedStatement.executeQuery();
-			
-			if (resultSet.next()) {
-				String name= resultSet.getString("name");
-				String category=resultSet.getString("category");
-				int year = resultSet.getInt("year");
-				
-				film= new Film(name, category,year);
-				System.out.println(film.getName());
-			
-			}//if
-			
-		} catch (SQLException e) {throw new DAOException("Excepción SQL", e);
-		
-		} finally {
-			
-			try {
-				
-				preparedStatement.close();
-				resultSet.close();
-				
-			} catch (SQLException e) {throw new DAOException("Excepción SQL", e);}
-			
-		}//finally
-		
-		return film;
+	public Film get(Integer idFilm) throws DAOException {	
+		return null;
 	}
 	
 	@Override
@@ -150,9 +114,37 @@ public class Database implements DAO<Film, Integer> {
 	
 	@Override
 	public List <Film> getAll() throws DAOException {
+		List<Film> listaClientes = new ArrayList<Film>();
 		
-		return null;
-	}
+		ResultSet rs= null;
+		PreparedStatement stmt = null;
+		
+		
+		try {
+            stmt = connection.prepareStatement(getAllFilms);
+            rs = stmt.executeQuery();
+            while(rs.next()){
+            	                
+            	String name = rs.getString("name");
+            	String category = rs.getString("category");
+            	int year = rs.getInt("year");
+            	
+                
+                Film f = new Film();
+                f.setName(name);
+                f.setCategory(category);
+                f.setYear(year);
+                
+                listaClientes.add(f);
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace(System.out);
+        }
+        finally{
+        }
+		return listaClientes;
+			}
 
 
 	@Override
