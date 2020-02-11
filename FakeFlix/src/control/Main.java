@@ -31,6 +31,7 @@ public class Main {
 		
 		logger.info("empieza");
 		
+		//comentario
 		
 		DAO<Film, Integer> dao = FactoryDAO.getInstance().getDAO();
 		//dao.get(1);
