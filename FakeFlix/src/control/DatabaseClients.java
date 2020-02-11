@@ -56,7 +56,7 @@ public class DatabaseClients implements DAOClients<Client, Integer>{
                 cliente.setName(name);
                 cliente.setCity(city);
                 cliente.setPremium(premium);
-                cliente.setBirthDate(birthDate);
+                cliente.setBirthdate(birthDate);
                 
                 listaClientes.add(cliente);
             }

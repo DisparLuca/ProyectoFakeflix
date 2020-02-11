@@ -1,6 +1,6 @@
 /**
  *	Representa a un usuario de la aplicacion FakeFlix
- * @author Pablo Muñoz
+ * @author Pablo Muï¿½oz
  */
 
 
@@ -14,18 +14,21 @@ public class Client {
 	private String name;
 	private String city;
 	private boolean premium;
-	private int birthDate;
+
+	private int birthdate;
+
 	
 	public Client() {
 		super();
 	}
 
-	public Client(int id_cliente, String name, String city, boolean premium, int birthDate) {
+	public Client(int id_cliente, String name, String city, boolean premium, int birthdate) {
+
 		this.id_cliente = id_cliente;
 		this.name = name;
 		this.city = city;
 		this.premium = premium;
-		this.birthDate = birthDate;
+		this.birthdate = birthdate;
 	}
 	
 	public int getId_cliente() {
@@ -61,17 +64,19 @@ public class Client {
 	}
 
 	public int getBirthdate() {
-		return birthDate;
+
+		return birthdate;
 	}
 
-	public void setBirthDate(int birthDate) {
-		this.birthDate = birthDate;
+	public void setBirthdate(int birthdate) {
+		this.birthdate = birthdate;
+
 	}
 
 	@Override
 	public String toString() {
 		return "Cliente [id_cliente=" + id_cliente + ", name=" + name + ", city=" + city + ", premium=" + premium
-				+ ", birthdate=" + birthDate + "]";
+				+ ", birthdate=" + birthdate + "]";
 	}
 	
 	

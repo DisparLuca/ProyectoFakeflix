@@ -1,9 +1,3 @@
-/**
- * Metodos de la interfaz DAO declarados
- * @author Álvaro Muñoz
- * 
- */
-
 package DAO;
 
 import java.util.List;
@@ -25,7 +19,10 @@ public interface DAO<T, K> {
 	//Actualizar
 	public void update(T t) throws DAOException;
 
-	//Leer el fichero peliculas_cat.txt e introducir los datos en la base de datos
 	void cargarDatos() throws DAOException;
+	//subir usuario a la base de datos
+	void saveUser() throws DAOException;
+	//borrar usuario de la base de datos.
+	void deleteUser() throws DAOException;
 
 }//DataAccessObject

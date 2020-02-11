@@ -1,8 +1,3 @@
-/**
- * Realiza la conexion con la base de datos MySql leyendo los parametros de un fichero de configuración (DAOsettings.xml) en la carpeta settings
- * @author Álvaro Muñoz
- */
-
 package mysqlConnection;
 
 import java.io.File;
@@ -74,7 +69,7 @@ public class DBConnection_MySQL {
 		HashMap <String, String> connectionData = null;
 		
 		try {
-			properties.loadFromXML(new FileInputStream(new File("settings\\DAOsettings.xml")));
+			properties.loadFromXML(new FileInputStream(new File("FakeFlix\\settings\\DAOsettings.xml")));
 			
 			connectionData= new HashMap<String, String>();
             

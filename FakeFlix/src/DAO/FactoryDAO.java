@@ -1,8 +1,3 @@
-/**
- * Aqui carga los datos de configuración del fichero DAOSettings.xml
- * @author Álvaro Muñoz
- */
-
 package DAO;
 
 import java.io.File;
@@ -33,7 +28,10 @@ public class FactoryDAO {
 	private static FactoryDAO instance;
 	private Properties properties;
 	private String DAO_type;
-	private String DAOsettingsXML= ".\\FakeFlix\\settings\\DAOsettings.xml";
+
+
+	private String DAOsettingsXML= "FakeFlix\\settings\\DAOsettings.xml";
+
 	
 	
 	//CONSTRUCTOR
@@ -46,7 +44,7 @@ public class FactoryDAO {
 	}//Constructor Principal
 	
 	
-	//MÉTODOS
+	//MÃ‰TODOS
 	//-----------------------------------------------------
 	
 	private void configDAO(String DAOsettingsXML) {
