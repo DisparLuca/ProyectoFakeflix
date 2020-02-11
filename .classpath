@@ -3,5 +3,8 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="FakeFlix/src"/>
 	<classpathentry kind="lib" path="C:/Users/admin/Desktop/mysql-connector-java-5.1.47.jar"/>
+	<classpathentry kind="lib" path="FakeFlix/log4j2.xml"/>
+	<classpathentry kind="lib" path="FakeFlix/log4j-api-2.7.jar"/>
+	<classpathentry kind="lib" path="FakeFlix/log4j-core-2.7.jar"/>
 	<classpathentry kind="output" path="FakeFlix/bin"/>
 </classpath>
