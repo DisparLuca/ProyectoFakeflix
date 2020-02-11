@@ -1,3 +1,10 @@
+/**
+ * Representa a una película de la aplicación FakeFlix con los parametros name,category y year
+ * @author Álvaro Muñoz
+ * 
+ */
+
+
 package model;
 
 public class Film {

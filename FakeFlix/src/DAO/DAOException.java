@@ -1,3 +1,8 @@
+/**
+ * Gestion de errores del DAO
+ * @author Álvaro Muñoz
+ */
+
 package DAO;
 
 public class DAOException extends Exception {

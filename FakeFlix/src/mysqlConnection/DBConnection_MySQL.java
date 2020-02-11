@@ -1,3 +1,8 @@
+/**
+ * Realiza la conexion con la base de datos MySql leyendo los parametros de un fichero de configuración (DAOsettings.xml) en la carpeta settings
+ * @author Álvaro Muñoz
+ */
+
 package mysqlConnection;
 
 import java.io.File;
