@@ -75,6 +75,10 @@ public class DatabaseClients implements DAOClients<Client, Integer>{
 		
 	}
 	
+	/**
+	 * @author David.
+	 * listado de pelçiculas por user.
+	 */
 	public void getFilmsByUser() throws DAOException {
 		
 		PreparedStatement stmt = null;
