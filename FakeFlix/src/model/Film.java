@@ -1,15 +1,18 @@
 package model;
 
 public class Film {
-	
+
 	private String name;
 	private String category;
 	private int year;
 
+	public Film() {
+	}
+
 	public Film(String name, String category, int year) {
-		this.name=name;
-		this.category=category;
-		this.year=year;
+		this.name = name;
+		this.category = category;
+		this.year = year;
 	}
 
 	public String getName() {
@@ -40,7 +43,5 @@ public class Film {
 	public String toString() {
 		return "Film [name=" + name + ", category=" + category + ", year=" + year + "]";
 	}
-	
-	
 
 }
