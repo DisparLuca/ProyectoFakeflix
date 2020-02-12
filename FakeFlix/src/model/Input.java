@@ -8,7 +8,7 @@ import java.util.Scanner;
  *
  */
 
-public class Input {
+	public class Input {
 	
 	public Input() {
 		
@@ -16,16 +16,18 @@ public class Input {
 	/**
 	 * @author David.
 	 * @return int recogido por teclado.
+	 * modificación a estático por Pablo.
 	 */
-	public int readInt() {
+	public static int readInt() {
 	return new Scanner(System.in).nextInt();
 	}
 	
 	/**
 	 * @author David.
 	 * @return String recogido por teclado.
+	 * modificación a estático por Pablo.
 	 */
-	public String readString() {
+	public static String readString() {
 		return new Scanner(System.in).nextLine();
 	}
 }

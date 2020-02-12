@@ -1,3 +1,9 @@
+/**
+ *	Representa a un usuario de la aplicacion FakeFlix
+ * @author Pablo Mu�oz
+ */
+
+
 package model;
 import java.util.Date;
 
@@ -8,13 +14,16 @@ public class Client {
 	private String name;
 	private String city;
 	private boolean premium;
+
 	private int birthdate;
+
 	
 	public Client() {
 		super();
 	}
 
 	public Client(int id_cliente, String name, String city, boolean premium, int birthdate) {
+
 		this.id_cliente = id_cliente;
 		this.name = name;
 		this.city = city;
@@ -55,11 +64,13 @@ public class Client {
 	}
 
 	public int getBirthdate() {
+
 		return birthdate;
 	}
 
 	public void setBirthdate(int birthdate) {
 		this.birthdate = birthdate;
+
 	}
 
 	@Override

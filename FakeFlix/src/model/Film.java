@@ -12,6 +12,10 @@ public class Film {
 		this.year=year;
 	}
 
+	public Film() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getName() {
 		return name;
 	}
